@@ -76,26 +76,28 @@ public class CompanyManagement {
         return empList;
     }
 
-    public Employee getDeveloperByProgrammingLanguage(String pl) {
+    public List<Employee> getDeveloperByProgrammingLanguage(String pl) {
+        List<Employee> list = new ArrayList<>();
         for (Employee e : empList) {
             if (e instanceof Developer) {
                 if (((Developer) e).getProgrammingLanguages().toUpperCase().contains(pl.toUpperCase())) {
-                    return e;
+                    list.add(e);
                 }
             }
         }
-        return null;
+        return list;
     }
 
-    public Tester getTestersHaveSalaryGreaterThan(double value) {
+    public List<Employee> getTestersHaveSalaryGreaterThan(double value) {
+        List<Employee> list = new ArrayList<>();
         for (Employee e : empList) {
             if (e instanceof Tester) {
                 if (e.getSalary() > value) {
-                    return (Tester) e;
+                    list.add(e);
                 }
             }
         }
-        return null;
+        return list;
     }
 
     public Employee getEmployeeWithHigestSalary() {

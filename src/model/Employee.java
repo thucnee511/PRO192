@@ -52,7 +52,7 @@ public abstract class Employee implements Comparable<Employee> {
 
     @Override
     public String toString() {
-        return empID + "_" + empName + "_" + baseSal;
+        return empID + "_" + empName + "_" + String.format("%.0f", baseSal);
     }
 
     @Override
@@ -62,7 +62,7 @@ public abstract class Employee implements Comparable<Employee> {
             String _name = o.empName.substring(o.empName.lastIndexOf(" "));
             return name.compareTo(_name);
         } else {
-            return Double.compare(this.baseSal, o.baseSal);
+            return Double.compare(this.baseSal, o.baseSal) * -1;
         }
     }
 }
